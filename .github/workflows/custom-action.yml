@@ -1,22 +1,29 @@
+name: CI-Build
 on: [push]
 
 jobs:
-  my-job:
+  build:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: omenking/barsoom@0.0.6
-        with:
-          name: 'Brown'
-      # Use the output from the `hello` step
-      - name: Get the Output
-        run: echo "The time was ${{ steps.hello.outputs.greeting }}"
+      - name: Step 1
+        run: echo "this is step 1 Build"  
       - name: Step 2
-        run: echo "this is step 2"
+        run: echo "this is step 2  Build"
       - name: Step 3
-        run: echo "this is step 3"
+        run: echo "this is step 3  Build"
       - name: Step 4
-        run: echo "this is step 4"
+        run: echo "this is step 4  Build"
+  test:
+    runs-on: ubuntu-latest
+    name: A job to say hello test
+    steps: 
+      - name: Step 1
+        run: echo "this is step 1 Test" 
+      - name: Step 2
+        run: echo "this is step 2 Test"
+      - name: Step 3
+        run: echo "this is step 3 Test"
+      - name: Step 4
+        run: echo "this is step 4 Test"
     
