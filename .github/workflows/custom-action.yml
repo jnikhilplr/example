@@ -37,10 +37,18 @@ jobs:
        
   promote:
     runs-on: ubuntu-latest
-    name: Test Job
+    name: Promote Job
     needs: 
       - test
       - scan
+    steps: 
+      - name: Step 1
+        run: echo "this is step 1 Promote"
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy Job
+    if: github.event_name == 'workflow_dispatch'
+    needs: promote
     steps: 
       - name: Step 1
         run: echo "this is step 1 Promote" 
