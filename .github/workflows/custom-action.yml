@@ -1,19 +1,23 @@
 name: CI-Build
-on: [push]
+
+on:
+  push:
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Buid Job
+    name: Build Job
     steps:
       - name: Step 1
         run: echo "this is step 1 Build"  
       - name: Step 2
-        run: echo "this is step 2  Build"
+        run: echo "this is step 2 Build"
       - name: Step 3
-        run: echo "this is step 3  Build"
+        run: echo "this is step 3 Build"
       - name: Step 4
-        run: echo "this is step 4  Build"
+        run: echo "this is step 4 Build"
+
   test:
     runs-on: ubuntu-latest
     name: Test Job
@@ -27,6 +31,7 @@ jobs:
         run: echo "this is step 3 Test"
       - name: Step 4
         run: echo "this is step 4 Test"
+
   scan:
     runs-on: ubuntu-latest
     name: Scan Code
@@ -34,7 +39,7 @@ jobs:
     steps: 
       - name: Step 1
         run: echo "this is step 1 Scan" 
-       
+
   promote:
     runs-on: ubuntu-latest
     name: Promote Job
@@ -44,13 +49,12 @@ jobs:
     steps: 
       - name: Step 1
         run: echo "this is step 1 Promote"
+
   deploy:
     runs-on: ubuntu-latest
     name: Deploy Job
-    environment: production
     needs: promote
+    environment: production
     steps: 
       - name: Step 1
-        run: echo "this is step 1 Promote" 
-       
-    
+        run: echo "this is step 1 Deploy"
