@@ -4,7 +4,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Buid Job
     steps:
       - name: Step 1
         run: echo "this is step 1 Build"  
@@ -16,7 +16,8 @@ jobs:
         run: echo "this is step 4  Build"
   test:
     runs-on: ubuntu-latest
-    name: A job to say hello test
+    name: Test Job
+    needs: build
     steps: 
       - name: Step 1
         run: echo "this is step 1 Test" 
