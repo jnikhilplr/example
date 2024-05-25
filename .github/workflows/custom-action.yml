@@ -47,7 +47,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     name: Deploy Job
-    if: github.event_name == 'workflow_dispatch'
+    environment: production
     needs: promote
     steps: 
       - name: Step 1
