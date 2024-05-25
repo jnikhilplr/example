@@ -27,4 +27,22 @@ jobs:
         run: echo "this is step 3 Test"
       - name: Step 4
         run: echo "this is step 4 Test"
+  scan:
+    runs-on: ubuntu-latest
+    name: Scan Code
+    needs: build
+    steps: 
+      - name: Step 1
+        run: echo "this is step 1 Scan" 
+       
+  promote:
+    runs-on: ubuntu-latest
+    name: Test Job
+    needs: 
+      - test
+      - scan
+    steps: 
+      - name: Step 1
+        run: echo "this is step 1 Promote" 
+       
     
