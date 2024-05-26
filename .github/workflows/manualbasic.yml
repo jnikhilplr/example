@@ -1,0 +1,12 @@
+name: Manual Trigger
+
+on:
+  workflow_dispatch:  
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Display Greeting
+        run: |
+          echo "Manual Trigger without params"
+       
