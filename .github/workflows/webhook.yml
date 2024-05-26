@@ -2,7 +2,8 @@ name: Webhook Triggered
 
 on:
   repository_dispatch:
-    types: [custom-webhook-event]
+    types: 
+      - webhook
 
 jobs:
   webhook-job:
