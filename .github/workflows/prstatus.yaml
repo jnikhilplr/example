@@ -1,4 +1,5 @@
 name: PR-Status
+run-name: ${{ github.actor }}
 on:
   pull_request:
     types: [opened, synchronize, reopened]
