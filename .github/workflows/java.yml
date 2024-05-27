@@ -1,0 +1,14 @@
+name: CI-Build
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build Job
+    steps:
+      - name: Step 1
+        run: echo "java-version"  
+       
