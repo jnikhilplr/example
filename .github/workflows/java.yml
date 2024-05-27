@@ -1,4 +1,4 @@
-name: CI-Build
+name: Java-Build
 
 on:
   push
