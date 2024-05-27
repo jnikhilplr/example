@@ -1,0 +1,32 @@
+name: workflow-command
+
+on:
+  push
+
+jobs:
+  command:
+    runs-on: ubuntu-latest
+    name: workflow-build
+    steps:
+      - name: "Group Logging"
+        run: |
+          echo "::group:: My Group Message"
+          echo "Message 1"
+          echo "Message 2"
+          echo "::endgroup::" 
+
+      - name : "List Env"
+        run: |
+          echo $GITHUB_ENV
+      
+      - name : "SetEnv"
+        run: |
+          echo "MYVAR=hello" >> $GITHUB_ENV
+      
+      - name : "getEnv"
+        run: |
+          echo $MYVAR
+
+
+
+    
