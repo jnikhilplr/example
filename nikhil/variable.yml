@@ -1,0 +1,37 @@
+name: Variables
+
+on: 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - production
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set environment variable
+        id: set-env
+        run: echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $GITHUB_ENV
+
+      - name: Use secret in script
+        run: |
+          echo "Using the secret in a script"
+          echo "Selected environment is $ENVIRONMENT"
+          echo "My env variable is $MY_ENV_VAR"
+          echo "My repo secret is $MY_REPO_VAR" 
+          echo ${{ inputs.environment }}
+        env: 
+          MY_ENV_VAR : ${{ vars.ENVVAR }}
+          MY_REPO_VAR: ${{ vars.REPOVAR }}
+ 
