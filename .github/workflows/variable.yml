@@ -24,6 +24,7 @@ jobs:
     needs: build
     steps:   
       - name: Deploy application
+        run: |
           echo "Using the secret in a script"
           echo "Selected environment is $ENVIRONMENT" 
     
