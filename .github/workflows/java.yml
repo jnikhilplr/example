@@ -10,5 +10,5 @@ jobs:
     name: Build Job
     steps:
       - name: Step 1
-        run: java version 
+        run: java --version 
        
