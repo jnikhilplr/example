@@ -1,0 +1,21 @@
+name: CI-Build
+
+on:
+  push 
+
+jobs:
+  build:
+    if: github.ref_name == 'dev'
+    runs-on: ubuntu-latest 
+    steps:
+      - name: Step 1
+        run: echo "this is step 1 Build"  
+  
+  test:
+    runs-on: ubuntu-latest
+    name: Test Job
+    needs: build
+    steps: 
+      - name: Step 1
+        run: echo "this is step 1 Test" 
+       
