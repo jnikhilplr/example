@@ -1,5 +1,5 @@
 name: PR-Status
-run-name: ${{ github.event.head_commit.message }} : ${{ github.actor }}
+run-name: ${{ github.actor }}: ${{ github.event.head_commit.message }}
 on:
   pull_request:
     types: [opened, synchronize, reopened]
