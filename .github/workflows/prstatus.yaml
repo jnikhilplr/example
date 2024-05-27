@@ -23,32 +23,26 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            const { repo, owner } = context.repo;
-            const headers = { 'user-agent': 'request' };
-            await github.rest.repos.createCommitStatus({
-              owner,
-              repo,
+            github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
               sha: context.sha,
               state: 'success',
               context: 'CI',
               description: 'Build and tests passed',
-              target_url: context.payload.pull_request.html_url,
-              headers
-            });
+              target_url: '${{ github.event.pull_request.html_url }}'
+            })
       - name: Update PR status to failure
         if: failure()
         uses: actions/github-script@v6
         with:
           script: |
-            const { repo, owner } = context.repo;
-            const headers = { 'user-agent': 'request' };
-            await github.rest.repos.createCommitStatus({
-              owner,
-              repo,
+            github.rest.repos.createCommitStatus({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
               sha: context.sha,
               state: 'failure',
               context: 'CI',
               description: 'Build or tests failed',
-              target_url: context.payload.pull_request.html_url,
-              headers
-            });
+              target_url: '${{ github.event.pull_request.html_url }}'
+            })
