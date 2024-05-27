@@ -1,11 +1,11 @@
-name: CI-Build
+name: BranchBuild
 
 on:
   push 
 
 jobs:
   build:
-    if: github.ref_name == 'dev'
+    if: ${{ startsWith(github.ref_name, 'release') || github.ref_name == 'dev' }}
     runs-on: ubuntu-latest 
     steps:
       - name: Step 1
