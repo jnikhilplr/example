@@ -12,13 +12,13 @@ jobs:
         
       - name: Set environment variable
         id: set-env
-        run: echo "ENVIRONMENT=${{ github.event.inputs.environment }}" >> $GITHUB_ENV 
+        run: echo "ENVIRONMENT=dev" >> $GITHUB_ENV 
 
       - name: Use secret in script
         run: |
           echo "Using the secret in a script"
           echo "Selected environment is $ENVIRONMENT" 
-          echo "$ENVIRONMENT ${{ github.job}}" > environment.txt
+          echo "$ENVIRONMENT ${{ github.run_id }}" > environment.txt
 
       - name: Upload environment artifact
         uses: actions/upload-artifact@v3
