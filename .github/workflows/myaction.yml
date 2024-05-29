@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: jnikhilplr/setup-greeting@v1.0
+        uses: jnikhilplr/setup-greeting@v1.1
         with:
           who-to-greet: 'DevOps'
       # Use the output from the `hello` step
