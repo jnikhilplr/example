@@ -1,0 +1,13 @@
+name: Workflow B
+on:
+  workflow_run:
+    workflows: ["Workflow A"]
+    types:
+      - completed
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: echo "Running test"
