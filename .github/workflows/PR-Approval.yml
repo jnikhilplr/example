@@ -1,0 +1,20 @@
+name: PR Review and Label
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, review_requested, ready_for_review]
+
+jobs:
+  review-and-label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Label when approved
+        uses: pullreminders/label-when-approved-action@main
+        env:
+          APPROVALS: "1"  # Number of approvals required
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ADD_LABEL: "approved"
