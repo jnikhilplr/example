@@ -1,4 +1,4 @@
-name: PR Review and Label
+name: PR Review and Labeling
 
 on:
   pull_request:
