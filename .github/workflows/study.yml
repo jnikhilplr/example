@@ -1,0 +1,14 @@
+name: myfirst
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out
+        uses: actions/checkout@v2
+
+      - name: build package
+        run: |
+          echo "Ima on build package"
+    
