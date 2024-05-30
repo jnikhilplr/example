@@ -3,6 +3,7 @@ on:
   push:
 jobs:
   build:
+    name: first stage
     runs-on: ubuntu-latest
     steps:
       - name: Check Out
